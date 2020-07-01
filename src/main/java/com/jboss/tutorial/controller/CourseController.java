@@ -15,21 +15,23 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private CourseService courseService;
+
     @PostMapping("/add/course")
-    public ResponseEntity<Course> addCourse(@Valid @RequestBody Course course){
-        try{
+    public ResponseEntity<Course> addCourse(@Valid @RequestBody Course course) {
+        try {
             courseService.registerCourse(course);
             return new ResponseEntity<>(course, HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
         }
     }
+
     @GetMapping("/fetch/courses")
-    public ResponseEntity<List<Course>> fetchCourse(List<Course> courses){
-        try{
+    public ResponseEntity<List<Course>> fetchCourse() {
+        try {
             courseService.fetchCourses(courses);
             return new ResponseEntity<>(courses, HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }

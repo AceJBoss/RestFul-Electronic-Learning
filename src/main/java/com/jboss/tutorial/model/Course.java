@@ -24,7 +24,7 @@ public class Course {
     private String courseDesc;
     private double amount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(foreignKey = @ForeignKey(name = "instructor_id"))
     private Instructor instructor;
 }

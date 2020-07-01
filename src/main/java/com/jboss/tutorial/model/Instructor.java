@@ -31,7 +31,7 @@ public class Instructor {
     @Column(name = "updated_at")
     private Date updated_at;
 
-    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Course> courses;
 
 
