@@ -29,8 +29,8 @@ public class CourseController {
     @GetMapping("/fetch/courses")
     public ResponseEntity<List<Course>> fetchCourse() {
         try {
-            courseService.fetchCourses(courses);
-            return new ResponseEntity<>(courses, HttpStatus.OK);
+            courseService.fetchCourses();
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
